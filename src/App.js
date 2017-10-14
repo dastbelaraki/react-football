@@ -1,37 +1,58 @@
 import React, { Component } from 'react';
 import './App.css';
+import Row from './components/Row';
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
-      data:[],
-      standings:[]
+      data: [], 
+      rows: []
     }
   }
-  componentWillMount() {
-    fetch('http://api.football-data.org/v1/soccerseasons/445/leagueTable', { headers: { 'X-Auth-Token': 'b7d52e61c66f4a0194be725042ad4359' } })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        data: responseJson 
-      })
-    })
-    .catch((error) => {
-      console.error(error);
-    });
 
+  fetchData() {
+
+    const Token = 'b7d52e61c66f4a0194be725042ad4359',
+      URL = 'http://api.football-data.org/v1/soccerseasons/445/leagueTable';
+
+    fetch(URL, { headers: { 'X-Auth-Token': Token } })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        const rows = [];
+        responseJson.standing.map(
+          (item, index) => {
+            const {position, crestURI, teamName, playedGames, wins, draws, losses, goals, goalsAgainst, goalDifference, points} = item;
+            return(
+              rows.push(
+                <Row key={index} position={position} crestURI={crestURI} teamName={teamName} playedGames={playedGames} wins={wins} draws={draws} losses={losses} goalsFor={goals} goalsAgainst={goalsAgainst} goalDifference={goalDifference} points={points} />
+              )
+            )
+          }
+        )
+        this.setState({
+          data: responseJson,
+          rows: rows
+        })
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
   render() {
-    console.log(this.state.data);
-    const leagueCaption = this.state.data.leagueCaption;
-      //teamName = this.state.data.standing["0"].teamName;
-      //console.log(teamName);
+    const {leagueCaption,matchday} = this.state.data;
     return (
-      <div>
+      <div className="app">
         <h1 className="title">{leagueCaption}</h1>
+        <span>Matchday {matchday} <br /></span>
         <span className="subtitle">Standings</span>
-        <table>
+        <table className="standings">
           <tbody>
             <tr>
               <td>
@@ -65,54 +86,13 @@ class App extends Component {
                 Pts
               </td>
             </tr>
-            <tr>
-              <td>
-                1
-              </td>
-              <td>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>
-                        Badge
-                              </td>
-                      <td>
-                        Man. City
-                              </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-              <td>
-                7
-              </td>
-              <td>
-                6
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                0
-              </td>
-              <td>
-                22
-              </td>
-              <td>
-                2
-              </td>
-              <td>
-                20
-              </td>
-              <td>
-                19
-              </td>
-            </tr>
+            {this.state.rows}
           </tbody>
         </table>
       </div>
     );
   }
+
 }
 
 export default App;
