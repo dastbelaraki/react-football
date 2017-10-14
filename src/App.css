@@ -14,8 +14,9 @@
   width: 25px;
 }
 
-.standings .team-name{
-  width: 170px;
+.standings .team-name,
+.team-name table{
+  width: 250px;
 }
 
 .crest{

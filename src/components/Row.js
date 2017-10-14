@@ -14,7 +14,7 @@ const Row = (props) => {
                                 <img src={props.crestURI} alt={props.teamName} />
                             </td>
                             <td>
-                                {props.teamName}
+                                <div>{props.teamName}</div>
                             </td>
                         </tr>
                     </tbody>
