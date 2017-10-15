@@ -1,22 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Button from './components/Button';
 import Row from './components/Row';
-import TableHead from './components/TableHead';
+import TableBody from './components/TableBody';
+import LeagueInfo from './components/LeagueInfo';
 
 class App extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      data: [], 
-      rows: []
+      data: [],
+      rows: [],
+      leagueId: 455,
+      leagues: {
+        "La Liga": 455,
+        "Premier League": 445,
+        "Eredivisie": 449,
+        "Ligue 1": 450,
+        "Bundesliga": 452,
+        "Serie A": 456
+      },
+      buttons: []
     }
   }
 
-  fetchData() {
+  handleLeagueClick() {
 
+  }
+
+  fetchData() {
     const Token = 'b7d52e61c66f4a0194be725042ad4359',
-      URL = 'http://api.football-data.org/v1/soccerseasons/445/leagueTable';
+      leagueId = this.state.leagueId,
+      URL = 'http://api.football-data.org/v1/soccerseasons/' + leagueId + '/leagueTable';
 
     fetch(URL, { headers: { 'X-Auth-Token': Token } })
       .then((response) => response.json())
@@ -24,8 +41,8 @@ class App extends Component {
         const rows = [];
         responseJson.standing.map(
           (item, index) => {
-            const {position, crestURI, teamName, playedGames, wins, draws, losses, goals, goalsAgainst, goalDifference, points} = item;
-            return(
+            const { position, crestURI, teamName, playedGames, wins, draws, losses, goals, goalsAgainst, goalDifference, points } = item;
+            return (
               rows.push(
                 <Row key={index} position={position} crestURI={crestURI} teamName={teamName} playedGames={playedGames} wins={wins} draws={draws} losses={losses} goalsFor={goals} goalsAgainst={goalsAgainst} goalDifference={goalDifference} points={points} />
               )
@@ -44,21 +61,27 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
+    console.log(this.state.leagues);
+    for (let key in this.state.leagues) {
+        this.state.buttons.push(
+          <Button key={this.state.leagues[key]} leagueId={this.state.leagues[key]} text={key} />
+        )
+    }
+    console.log('*componentDidMount');
   }
 
   render() {
-    const {leagueCaption,matchday} = this.state.data;
+    console.log('*render');
+    const { leagueCaption, matchday } = this.state.data;
     return (
       <div className="app">
-        <h1 className="title">{leagueCaption}</h1>
-        <span>Matchday {matchday} <br /></span>
-        <span className="subtitle">Standings</span>
-        <table className="standings">
-          <tbody>
-            <TableHead />
-            {this.state.rows}
-          </tbody>
-        </table>
+        <Header>
+        {this.state.buttons}
+        </Header>
+        <LeagueInfo leagueCaption={leagueCaption} matchday={matchday} />
+        <TableBody>
+          {this.state.rows}
+        </TableBody>
       </div>
     );
   }
