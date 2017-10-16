@@ -1,11 +1,65 @@
 .app {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  max-width: 940px;
+  margin: 0 auto;
 }
 
-h1{
+header{
+  padding: 1.2em 0;
+}
+
+header button{
+  margin-right: 15px;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  color: #fff;
+  background-color: #26a69a;
+  text-align: center;
+  letter-spacing: .5px;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+header button:hover,
+header button:active{
+  background-color: #2bbbad;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+  outline: 0;
+}
+
+.container{
+  display: flex;
+}
+
+.league-info{
+  margin-bottom: 1.2em;
+  align-self: center;
+}
+
+.league-info h1{
   font-size: 1.8em;
   font-weight: 400;
+  margin: 0 0 .5em;
+}
+.league-info span{
+  margin-bottom: 10px;
+  display: block;
 }
 
 .standings{

@@ -72,6 +72,42 @@ class App extends Component {
     }
   }
 
+  leagueNameClipper(leagueCaption) {
+    let leagueName;
+    switch (leagueCaption) {
+      case "Primera Division 2017":
+        leagueName = "La Liga";
+        break;
+
+      case "Premier League 2017/18":
+        leagueName = "Premier League";
+        break;
+
+      case "Eredivisie 2017/18":
+        leagueName = "Eredivisie";
+        break;
+
+      case "Ligue 1 2017/18":
+        leagueName = "Ligue 1";
+        break;
+
+      case "1. Bundesliga 2017/18":
+        leagueName = "Bundesliga";
+        break;
+
+      case "Serie A 2017/18":
+        leagueName = "Serie A";
+        break;
+
+      default:
+        leagueName = "La Liga"
+        break;
+    }
+
+    return leagueName;
+
+  }
+
   render() {
     const { leagueCaption, matchday } = this.state.data;
     return (
@@ -79,10 +115,12 @@ class App extends Component {
         <Header>
           {this.state.buttons}
         </Header>
-        <LeagueInfo leagueCaption={leagueCaption} matchday={matchday} />
-        <TableBody>
-          {this.state.rows}
-        </TableBody>
+        <div className="container">
+          <LeagueInfo leagueCaption={this.leagueNameClipper(leagueCaption)} matchday={matchday} />
+          <TableBody>
+            {this.state.rows}
+          </TableBody>
+        </div>
       </div>
     );
   }
