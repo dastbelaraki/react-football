@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Header from './components/Header';
 import Button from './components/Button';
 import Row from './components/Row';
@@ -111,15 +110,21 @@ class App extends Component {
   render() {
     const { leagueCaption, matchday } = this.state.data;
     return (
-      <div className="app">
-        <Header>
-          {this.state.buttons}
-        </Header>
-        <div className="container">
-          <LeagueInfo leagueCaption={this.leagueNameClipper(leagueCaption)} matchday={matchday} />
-          <TableBody>
-            {this.state.rows}
-          </TableBody>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <Header>{this.state.buttons}</Header>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-4">
+            <LeagueInfo leagueCaption={this.leagueNameClipper(leagueCaption)} matchday={matchday} />
+          </div>
+          <div className="col-md-8">
+              <TableBody>
+                {this.state.rows}
+              </TableBody>
+          </div>
         </div>
       </div>
     );

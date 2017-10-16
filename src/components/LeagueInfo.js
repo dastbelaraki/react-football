@@ -40,10 +40,10 @@ const LeagueInfo = (props) => {
     }
 
     return (
-        <div className="league-info">
-            <img src={imgSrc} alt="" />
-            <h1 className="title">{props.leagueCaption}</h1>
-            <span>Matchday {props.matchday}</span>
+        <div className="text-center">
+            <img className="mx-auto" src={imgSrc} alt="league-logo" />
+            <h1 className="text-center">{props.leagueCaption}</h1>
+            <h5 className="text-muted">Matchday {props.matchday}</h5>
         </div>
     );
 };

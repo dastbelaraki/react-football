@@ -2,40 +2,42 @@ import React from 'react'
 
 const TableBody = (props) => {
     return (
-        <table className="standings">
-            <tbody>
-                <tr className="table-head">
-                    <td className="team-position">
+        <table className="table table-responsive table-hover text-secondary">
+            <thead className="thead-default">
+                <tr>
+                    <th className="text-center">
                         #
-                    </td>
-                    <td className="team-name">
+                    </th>
+                    <th className="text-left">
                         Team
-                    </td>
-                    <td title="Matches played">
+                    </th>
+                    <th className="text-center" title="Matches played" data-toggle="tooltip">
                         MP
-                    </td>
-                    <td title="Wins">
+                    </th>
+                    <th className="text-center" title="Wins">
                         W
-                    </td>
-                    <td title="Draws">
+                    </th>
+                    <th className="text-center" title="Draws">
                         D
-                    </td>
-                    <td title="Losses">
+                    </th>
+                    <th className="text-center" title="Losses">
                         L
-                    </td>
-                    <td title="Goals for">
+                    </th>
+                    <th className="text-center" title="Goals for">
                         GF
-                    </td>
-                    <td title="Goals against">
+                    </th>
+                    <th className="text-center" title="Goals against">
                         GA
-                    </td>
-                    <td title="Goals difference">
+                    </th>
+                    <th className="text-center" title="Goals difference">
                         GD
-                    </td>
-                    <td title="Team points">
+                    </th>
+                    <th className="text-center" title="Team points">
                         Pts
-                    </td>
+                    </th>
                 </tr>
+            </thead>
+            <tbody>
                 {props.children}
             </tbody>
         </table>
