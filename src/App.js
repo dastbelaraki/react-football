@@ -24,10 +24,14 @@ class App extends Component {
       },
       buttons: []
     }
+    this.handleLeagueClick = this.handleLeagueClick.bind(this);
   }
 
-  handleLeagueClick() {
-
+  handleLeagueClick(e) {
+    const newId = e.target.getAttribute('data-leagueid');
+    this.setState({
+      leagueId: newId
+    }, () => { this.fetchData() });
   }
 
   fetchData() {
@@ -61,22 +65,19 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchData();
-    console.log(this.state.leagues);
     for (let key in this.state.leagues) {
-        this.state.buttons.push(
-          <Button key={this.state.leagues[key]} leagueId={this.state.leagues[key]} text={key} />
-        )
+      this.state.buttons.push(
+        <Button handleClick={this.handleLeagueClick} key={this.state.leagues[key]} leagueId={this.state.leagues[key]} text={key} />
+      )
     }
-    console.log('*componentDidMount');
   }
 
   render() {
-    console.log('*render');
     const { leagueCaption, matchday } = this.state.data;
     return (
       <div className="app">
         <Header>
-        {this.state.buttons}
+          {this.state.buttons}
         </Header>
         <LeagueInfo leagueCaption={leagueCaption} matchday={matchday} />
         <TableBody>
