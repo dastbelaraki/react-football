@@ -2,7 +2,6 @@
   "name": "react-football",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://imandb.github.io/react-football/",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -12,11 +11,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "devDependencies": {
-    "gh-pages": "^1.0.0"
+    "eject": "react-scripts eject"
   }
 }
