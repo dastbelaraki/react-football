@@ -3,37 +3,35 @@ import React from 'react';
 const Row = (props) => {
     return (
         <tr>
-            <td className="team-position">
+            <td className="text-center">
                 {props.position}
             </td>
-            <td className="team-name">
-                <div className="crest">
-                    <img src={props.crestURI} alt=">.<" />
-                </div>
+            <td className="text-left">
+                <img className="rounded mr-3" src={props.crestURI} alt="team-logo" width="30" height="30" />
                 <span>{props.teamName}</span>
             </td>
-            <td>
+            <td className="text-center">
                 {props.playedGames}
             </td>
-            <td>
+            <td className="text-center">
                 {props.wins}
             </td>
-            <td>
+            <td className="text-center">
                 {props.draws}
             </td>
-            <td>
+            <td className="text-center">
                 {props.losses}
             </td>
-            <td>
+            <td className="text-center">
                 {props.goalsFor}
             </td>
-            <td>
+            <td className="text-center">
                 {props.goalsAgainst}
             </td>
-            <td>
+            <td className="text-center">
                 {props.goalDifference}
             </td>
-            <td className="team-points">
+            <td className="text-center">
                 {props.points}
             </td>
         </tr>

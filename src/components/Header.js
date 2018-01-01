@@ -2,9 +2,9 @@ import React from 'react';
 
 const Header = (props) => {
     return (
-        <header>
+        <div className="btn-group btn-group-lg my-4" role="group" aria-label="Football Leagues">
             {props.children}
-        </header>
+        </div>
     );
 };
 
