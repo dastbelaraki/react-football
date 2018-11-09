@@ -8,7 +8,7 @@ const Row = (props) => {
             </td>
             <td className="team-name">
                 <div className="crest">
-                    <img src={props.crestURI} alt=">.<" />
+                    <img src={props.crestURI} alt=""/>
                 </div>
                 <span>{props.teamName}</span>
             </td>

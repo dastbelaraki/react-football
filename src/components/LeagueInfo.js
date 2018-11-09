@@ -18,7 +18,7 @@ const LeagueInfo = (props) => {
             imgSrc = Eredivisie;
             break;
 
-        case "La Liga":
+        case "Primera Division":
             imgSrc = LaLiga;
             break;
 
@@ -42,8 +42,6 @@ const LeagueInfo = (props) => {
     return (
         <div className="league-info">
             <img src={imgSrc} alt="" />
-            <h1 className="title">{props.leagueCaption}</h1>
-            <span>Matchday {props.matchday}</span>
         </div>
     );
 };
