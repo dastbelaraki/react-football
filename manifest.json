@@ -1,11 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Football",
+  "name": "European League's Standing App",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "192x192",
-      "type": "image/png"
+      "sizes": "48x48",
+      "type": "image/ico"
     }
   ],
   "start_url": "./index.html",

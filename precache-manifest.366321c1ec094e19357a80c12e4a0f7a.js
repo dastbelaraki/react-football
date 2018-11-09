@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/react-football/static/media/Bundesliga.3e055fb4.png"
   },
   {
-    "revision": "33f0b0002ceaebded80a",
+    "revision": "62fc087655b9a1d640e4",
     "url": "/react-football/static/css/main.7c91c03c.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/react-football/static/media/LaLiga.2be24290.png"
   },
   {
-    "revision": "33f0b0002ceaebded80a",
-    "url": "/react-football/static/js/main.33f0b000.chunk.js"
+    "revision": "62fc087655b9a1d640e4",
+    "url": "/react-football/static/js/main.62fc0876.chunk.js"
   },
   {
     "revision": "0723988637eb0bcceb4564d8647b8599",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/react-football/static/media/SerieA.3ee74dc2.png"
   },
   {
-    "revision": "2477fe1b9ff25b5e3ff7e7a5c44a9aad",
+    "revision": "381c98d354d3eeea12fdb40fb15a7756",
     "url": "/react-football/index.html"
   }
 ];
